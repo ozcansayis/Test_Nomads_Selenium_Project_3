@@ -1,4 +1,5 @@
 import Utility.BaseDriver;
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -21,7 +22,28 @@ public class TC_304 extends BaseDriver {
         WebElement PaymentButton = driver.findElement(By.cssSelector("[data-option='CC']"));
         PaymentButton.click();
 
+        WebElement email = driver.findElement(By.cssSelector("[placeholder='Email']"));
+        email.sendKeys("Nomads@gmail.com");
 
-          WaitAndClose();
+        WebElement reemail = driver.findElement(By.cssSelector("[placeholder='Confirm Email']"));
+        reemail.sendKeys("Nomads@gmail.com");
+
+        WebElement name = driver.findElement(By.cssSelector("[placeholder='Name On Card']"));
+        name.sendKeys("Nomads");
+
+        WebElement Telefon = driver.findElement(By.xpath("//p[@class='Billing-Phone Inline']/input"));
+        Telefon.sendKeys("0531 531 53 53");
+
+        WebElement Company = driver.findElement(By.xpath("//p[@class='Billing-Company']/input"));
+        Company.sendKeys("NMADS OF TURKEY");
+
+        WebElement not = driver.findElement(By.xpath("//p[@class='BuyerNotes']/textarea"));
+        not.sendKeys("I LOVE MY COUNTRY");
+
+
+        // WaitAndClose();
+
+
+
     }
 }
