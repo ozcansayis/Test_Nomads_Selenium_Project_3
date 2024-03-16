@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 
 import java.util.List;
 
@@ -33,22 +34,27 @@ public class TC_302 extends BaseDriver {
         WebElement nameOnCard=driver.findElement(By.xpath("//*[@autocomplete='name']"));
         Assert.assertTrue(nameOnCard.isDisplayed(), "name on card doesnt exist");
 
+        driver.switchTo().frame(driver.findElement(By.cssSelector("[name^='__privateStripeFrame']")));
+
         WebElement cardNumber=driver.findElement(By.xpath("//input[@placeholder='Kart numarası']"));
         Assert.assertTrue(cardNumber.isDisplayed(), "card number doesnt exist");
 
+        WebElement expirationDate = driver.findElement(By.xpath("//input[@placeholder='AA / YY']"));
+        Assert.assertNotNull(expirationDate, "date doesnt exist");
 
+        WebElement cvc= driver.findElement(By.cssSelector("input[placeholder='CVC']"));
+        Assert.assertNotNull(cvc, "cvc is doesnt exist");
 
+        driver.switchTo().parentFrame();
 
+        WebElement pay= driver.findElement(By.cssSelector("[class='Pay-Button']"));
+        dAct.moveToElement(pay).click().build().perform();
 
+        WebElement fail= driver.findElement(By.xpath("//div[@id='SnackBar']/span"));
+        Assert.assertTrue(fail.getText().contains("Invalid Email"), "not found");
+        Assert.assertTrue(fail.getText().contains("Invalid Billing Name"), "billing not found");
 
-
-
-
-
-
-
-
-
+        //System.out.println("fail.getText() = " + fail.getText());
 
         WaitAndClose();
     }
