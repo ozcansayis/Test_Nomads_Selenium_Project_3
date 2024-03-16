@@ -41,14 +41,21 @@ public class TC_304 extends BaseDriver {
         not.sendKeys("I LOVE MY COUNTRY");
 
 
+        driver.switchTo().frame(driver.findElement(By.cssSelector("[name^='__privateStripeFrame']")));
+
+        WebElement CartNo = driver.findElement(By.name("cardnumber"));
+
+        CartNo.sendKeys("4242 4242 4242 4242");
+
+        WebElement Data = driver.findElement(By.name("exp-date"));
+        Data.sendKeys("12/24");
+
+        WebElement CVC = driver.findElement(By.name("cvc"));
+        CVC.sendKeys("000");
 
 
 
-
-
-        // WaitAndClose();
-
-
+         WaitAndClose();
 
     }
 }
