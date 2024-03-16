@@ -22,7 +22,7 @@ public class TC_301 extends BaseDriver {
 
         List<WebElement> yourCart=driver.findElements(By.xpath("//div[@class='Col2 Product-Desc']/h5"));
 
-        Assert.assertTrue("Hatalı", Tools.ListContainsString(yourCart,"Demo eBook"));
+        Assert.assertTrue("The product was not added to the cart.", Tools.ListContainsString(yourCart,"Demo eBook"));
 
         WebElement addPromoCode = wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//button[text()='Add Promo Code']"))));
         addPromoCode.click();
@@ -35,7 +35,7 @@ public class TC_301 extends BaseDriver {
 
         wait.until(ExpectedConditions.textToBe(By.xpath("//div[@id='SnackBar']/span"),"Invalid promo code"));
         WebElement message = driver.findElement(By.xpath("//div[@id='SnackBar']/span"));
-        Assert.assertTrue("Hata mesajı görüntülenmedi", message.isDisplayed());
+        Assert.assertTrue("No error message displayed.", message.isDisplayed());
 
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[text()='Invalid promo code']")));
 
