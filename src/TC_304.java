@@ -40,7 +40,6 @@ public class TC_304 extends BaseDriver {
         WebElement not = driver.findElement(By.xpath("//p[@class='BuyerNotes']/textarea"));
         not.sendKeys("I LOVE MY COUNTRY");
 
-
         driver.switchTo().frame(driver.findElement(By.cssSelector("[name^='__privateStripeFrame']")));
 
         WebElement CartNo = driver.findElement(By.name("cardnumber"));
@@ -53,9 +52,14 @@ public class TC_304 extends BaseDriver {
         WebElement CVC = driver.findElement(By.name("cvc"));
         CVC.sendKeys("000");
 
+        driver.switchTo().parentFrame();
+        WebElement PayButton = driver.findElement(By.cssSelector("button[class='Pay-Button']"));
+        PayButton.click();
 
+        WebElement msg = driver.findElement(By.xpath("//span[text()=' your order is confirmed. Thank you!']"));
+        Assert.assertTrue("mesaj hatali" , msg.getText().contains("your order is confirmed. Thank you!"));
 
-         WaitAndClose();
+        WaitAndClose();
 
     }
 }
