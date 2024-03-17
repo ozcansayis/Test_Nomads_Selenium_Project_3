@@ -3,11 +3,6 @@ import Utility.Tools;
 import Utility.eJunkie_POM;
 import org.junit.Assert;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
-
-import java.util.List;
 
 public class TC_302 extends BaseDriver {
     @Test
