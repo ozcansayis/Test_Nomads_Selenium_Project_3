@@ -3,6 +3,7 @@ package Utility;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
 import java.util.List;
 
 public class eJunkie_POM {
@@ -41,5 +42,15 @@ public class eJunkie_POM {
     public WebElement payButton;
 
     @FindBy(xpath = "//div[@id='SnackBar']//span")
-    public WebElement invalidCardNumber;
+    public WebElement message;
+
+    @FindBy(xpath = "//button[text()='Add Promo Code']")
+    public WebElement addPromoCode;
+
+    @FindBy(css = "input[class='Promo-Code-Value']")
+    public WebElement promoCode;
+
+    @FindBy(xpath = "//button[text()='Apply']")
+    public WebElement apply;
+
 }
