@@ -21,7 +21,7 @@ public class eJunkie_POM {
     public List<WebElement> cartItems;
 
     @FindBy(css = "button[data-option='CC']")
-    public WebElement debirCard;
+    public WebElement debitCard;
 
     @FindBy(css = "input[type='email']")
     public WebElement email;
@@ -52,5 +52,11 @@ public class eJunkie_POM {
 
     @FindBy(xpath = "//button[text()='Apply']")
     public WebElement apply;
+
+    @FindBy(xpath = "//input[@placeholder='AA / YY']")
+    public WebElement expirationDate;
+
+    @FindBy (css = "input[placeholder='CVC']")
+    public WebElement cvc;
 
 }

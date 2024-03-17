@@ -14,7 +14,7 @@ public class TC_303 extends BaseDriver {
         elements.eBookAdd.click();
         driver.switchTo().frame(elements.frame1);
         Assert.assertTrue("Item couldn't find in cart", Tools.ListContainsString(elements.cartItems,"Demo eBook"));
-        elements.debirCard.click();
+        elements.debitCard.click();
         elements.email.sendKeys("testnomads01@gmail.com");
         elements.emailConfirm.sendKeys("testnomads01@gmail.com");
         elements.name.sendKeys("Test Nomads");
