@@ -1,10 +1,12 @@
 import Utility.BaseDriver;
 import Utility.Tools;
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
+
 
 import java.util.List;
 
@@ -20,23 +22,24 @@ public class TC_302 extends BaseDriver {
         driver.switchTo().frame(driver.findElement(By.cssSelector("[class='EJIframeV3 EJOverlayV3']")));
 
         List<WebElement> validation=driver.findElements(By.cssSelector("[class='Col2 Product-Desc'] h5"));
-        Assert.assertTrue(Tools.ListContainsString(validation,"Demo eBook"),"Ürün bulunamadı");
+        Assert.assertTrue("Product couldn't find!",Tools.ListContainsString(validation,"Demo eBook"));
 
         WebElement payment= driver.findElement(By.cssSelector("[class='Payment-Button CC']"));
         dAct.moveToElement(payment).click().build().perform();
 
         WebElement email= driver.findElement(By.cssSelector("[placeholder='Email']"));
-        Assert.assertTrue(email.isDisplayed(), "place holder doesnt exist");
+        Assert.assertTrue("Place holder doesn't exist!",email.isDisplayed());
 
         WebElement confirmEmail=driver.findElement(By.cssSelector("[placeholder='Confirm Email']"));
-        Assert.assertTrue(confirmEmail.isDisplayed(),"confirm place holder doesnt exist");
+        Assert.assertTrue("Confirm place holder doesn't exist!",confirmEmail.isDisplayed());
 
         WebElement nameOnCard=driver.findElement(By.xpath("//*[@autocomplete='name']"));
-        Assert.assertTrue(nameOnCard.isDisplayed(), "name on card doesnt exist");
+        Assert.assertTrue("Name on card doesn't exist!",nameOnCard.isDisplayed());
 
         driver.switchTo().frame(driver.findElement(By.cssSelector("[name^='__privateStripeFrame']")));
 
         WebElement cardNumber=driver.findElement(By.xpath("//input[@placeholder='Kart numarası']"));
+
         Assert.assertTrue(cardNumber.isDisplayed(), "card number doesnt exist");
 
         WebElement expirationDate = driver.findElement(By.xpath("//input[@placeholder='AA / YY']"));
@@ -55,6 +58,7 @@ public class TC_302 extends BaseDriver {
         Assert.assertTrue(fail.getText().contains("Invalid Billing Name"), "billing not found");
 
         //System.out.println("fail.getText() = " + fail.getText());
+
 
         WaitAndClose();
     }
