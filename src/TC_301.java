@@ -6,9 +6,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import java.util.List;
-
 
 public class TC_301 extends BaseDriver {
     @Test
@@ -20,9 +18,9 @@ public class TC_301 extends BaseDriver {
 
         driver.switchTo().frame(driver.findElement(By.cssSelector("iframe[class='EJIframeV3 EJOverlayV3']")));
 
-        List<WebElement> yourCart=driver.findElements(By.xpath("//div[@class='Col2 Product-Desc']/h5"));
+        List<WebElement> yourCart = driver.findElements(By.xpath("//div[@class='Col2 Product-Desc']/h5"));
 
-        Assert.assertTrue("The product was not added to the cart.", Tools.ListContainsString(yourCart,"Demo eBook"));
+        Assert.assertTrue("The product was not added to the cart.", Tools.ListContainsString(yourCart, "Demo eBook"));
 
         WebElement addPromoCode = wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//button[text()='Add Promo Code']"))));
         addPromoCode.click();
@@ -33,7 +31,7 @@ public class TC_301 extends BaseDriver {
         WebElement apply = driver.findElement(By.xpath("//button[text()='Apply']"));
         apply.click();
 
-        wait.until(ExpectedConditions.textToBe(By.xpath("//div[@id='SnackBar']/span"),"Invalid promo code"));
+        wait.until(ExpectedConditions.textToBe(By.xpath("//div[@id='SnackBar']/span"), "Invalid promo code"));
         WebElement message = driver.findElement(By.xpath("//div[@id='SnackBar']/span"));
         Assert.assertTrue("No error message displayed.", message.isDisplayed());
 

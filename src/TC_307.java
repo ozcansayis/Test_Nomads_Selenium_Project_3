@@ -1,13 +1,12 @@
 import Utility.BaseDriver;
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 
 public class TC_307 extends BaseDriver {
     @Test
     public void TC_307() {
-
         driver.get("https://shopdemo.e-junkie.com/");
 
         WebElement e_junkie=driver.findElement(By.linkText("E-commerce by E-junkie"));
@@ -16,9 +15,8 @@ public class TC_307 extends BaseDriver {
         WebElement logo= driver.findElement(By.xpath("//*[@href='/']"));
         dAct.moveToElement(logo).click().build().perform();
 
-        //Assert.assertTrue(logo.getText().toLowerCase().equals("https://www.e-junkie.com/"));
-
-        Assert.assertFalse(driver==logo, "Hata mesajı alındı");
+        String newUrl=driver.getCurrentUrl();
+        Assert.assertTrue("Hata mesajı alındı",newUrl.contains("https://www.e-junkie.com/"));
 
         WaitAndClose();
     }
