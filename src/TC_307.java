@@ -12,7 +12,7 @@ public class TC_307 extends BaseDriver {
         WebElement e_junkie=driver.findElement(By.linkText("E-commerce by E-junkie"));
         dAct.moveToElement(e_junkie).click().build().perform();
 
-        WebElement logo= driver.findElement(By.xpath("//div[@class='column is-2-desktop is-4-tablet is-4-mobile']"));
+        WebElement logo= driver.findElement(By.xpath("//*[@href='/']"));
         dAct.moveToElement(logo).click().build().perform();
 
 
