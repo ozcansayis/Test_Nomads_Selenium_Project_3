@@ -22,7 +22,7 @@ public class TC_303 extends BaseDriver {
         elements.cardNumber.sendKeys("1111 1111 1111 1111");
         driver.switchTo().parentFrame();
         elements.payButton.click();
-        Assert.assertNotNull("\"Your card number is invalid.\" couldn't displayed",elements.invalidCardNumber);
+        Assert.assertNotNull("\"Your card number is invalid.\" couldn't displayed",elements.message);
 
         WaitAndClose();
     }
