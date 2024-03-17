@@ -19,9 +19,9 @@ public class TC_308 extends BaseDriver {
 
         //wait till the ad pops up and close it clicking on a blank part of the website.
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.cssSelector("div[class='wrapper']"))));
-        Tools.robot.mouseMove(300, 300);
-        Tools.robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
-        Tools.robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+        robocop.mouseMove(300, 300);
+        robocop.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+        robocop.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
 
         WebElement seeHowItWorks = driver.findElement(By.cssSelector("[onclick='toggleYoutubeModal(true)']"));
         seeHowItWorks.click();
@@ -34,11 +34,11 @@ public class TC_308 extends BaseDriver {
             robocop.keyRelease(KeyEvent.VK_TAB);
         }
 
-        Tools.robot.keyPress(KeyEvent.VK_ENTER);
-        Tools.robot.keyRelease(KeyEvent.VK_ENTER);
+        robocop.keyPress(KeyEvent.VK_ENTER);
+        robocop.keyRelease(KeyEvent.VK_ENTER);
         //muted the vid.
-        Tools.robot.keyPress(KeyEvent.VK_M);
-        Tools.robot.keyRelease(KeyEvent.VK_M);
+        robocop.keyPress(KeyEvent.VK_M);
+        robocop.keyRelease(KeyEvent.VK_M);
 
         WebElement frame = driver.findElement(By.cssSelector("div[class='modal youtube-modal is-active'] iframe"));
         driver.switchTo().frame(frame);
@@ -48,8 +48,8 @@ public class TC_308 extends BaseDriver {
         while (true) {
             String time = timeDisp.getText();
             if (time.equals("0:10")) {
-                Tools.robot.keyPress(KeyEvent.VK_ENTER);
-                Tools.robot.keyRelease(KeyEvent.VK_ENTER);
+                robocop.keyPress(KeyEvent.VK_ENTER);
+                robocop.keyRelease(KeyEvent.VK_ENTER);
                 break;
             }
         }
