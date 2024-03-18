@@ -9,20 +9,25 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.awt.*;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
-
+import java.util.List;
 
 public class TC_308 extends BaseDriver {
+
     @Test
     public void TC_308() throws AWTException {
         Robot robocop = new Robot();
         driver.get("https://www.e-junkie.com/");
 
         //wait till the ad pops up and close it clicking on a blank part of the website.
-        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.cssSelector("div[class='wrapper']"))));
-        Tools.robot.mouseMove(300, 300);
-        Tools.robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
-        Tools.robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-
+        List<WebElement> ad = wait.until(ExpectedConditions.visibilityOfAllElements
+                (driver.findElement(By.cssSelector("div[class='wrapper']"))));//ad might not pop everytime test is run so list is added to set the test to run according to any possible scenarios.
+        for (WebElement element : ad) {
+            if (element.getText().contains("14-Day FREE Trial")) {
+                robocop.mouseMove(300, 300);
+                robocop.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+                robocop.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+            }
+        }
         WebElement seeHowItWorks = driver.findElement(By.cssSelector("[onclick='toggleYoutubeModal(true)']"));
         seeHowItWorks.click();
         Assert.assertEquals("hata", "https://www.e-junkie.com/", driver.getCurrentUrl());
@@ -33,13 +38,11 @@ public class TC_308 extends BaseDriver {
             robocop.keyPress(KeyEvent.VK_TAB);
             robocop.keyRelease(KeyEvent.VK_TAB);
         }
-
-        Tools.robot.keyPress(KeyEvent.VK_ENTER);
-        Tools.robot.keyRelease(KeyEvent.VK_ENTER);
+        robocop.keyPress(KeyEvent.VK_ENTER);
+        robocop.keyRelease(KeyEvent.VK_ENTER);
         //muted the vid.
-        Tools.robot.keyPress(KeyEvent.VK_M);
-        Tools.robot.keyRelease(KeyEvent.VK_M);
-
+        robocop.keyPress(KeyEvent.VK_M);
+        robocop.keyRelease(KeyEvent.VK_M);
         WebElement frame = driver.findElement(By.cssSelector("div[class='modal youtube-modal is-active'] iframe"));
         driver.switchTo().frame(frame);
 
@@ -48,8 +51,8 @@ public class TC_308 extends BaseDriver {
         while (true) {
             String time = timeDisp.getText();
             if (time.equals("0:10")) {
-                Tools.robot.keyPress(KeyEvent.VK_ENTER);
-                Tools.robot.keyRelease(KeyEvent.VK_ENTER);
+                robocop.keyPress(KeyEvent.VK_ENTER);
+                robocop.keyRelease(KeyEvent.VK_ENTER);
                 break;
             }
         }
