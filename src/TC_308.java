@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import java.awt.*;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
@@ -43,6 +42,7 @@ public class TC_308 extends BaseDriver {
         //muted the vid.
         robocop.keyPress(KeyEvent.VK_M);
         robocop.keyRelease(KeyEvent.VK_M);
+
         WebElement frame = driver.findElement(By.cssSelector("div[class='modal youtube-modal is-active'] iframe"));
         driver.switchTo().frame(frame);
 

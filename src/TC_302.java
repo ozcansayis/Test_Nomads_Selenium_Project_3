@@ -1,40 +1,31 @@
 import Utility.BaseDriver;
 import Utility.Tools;
+import Utility.eJunkie_POM;
 import org.junit.Assert;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
-import java.util.List;
 
 public class TC_302 extends BaseDriver {
     @Test
     public void TC_302() {
-
         driver.get("https://shopdemo.e-junkie.com/");
 
-        WebElement addToCart = driver.findElement(By.xpath("(//*[@class='basicDetails'])[2]/button"));
-        dAct.moveToElement(addToCart).click().build().perform();
+        Utility.eJunkie_POM elements = new eJunkie_POM();
 
-        driver.switchTo().frame(driver.findElement(By.cssSelector("[class='EJIframeV3 EJOverlayV3']")));
-
-        List<WebElement> validation=driver.findElements(By.cssSelector("[class='Col2 Product-Desc'] h5"));
-        Assert.assertTrue("Product couldn't find!",Tools.ListContainsString(validation,"Demo eBook"));
-
-        WebElement payment= driver.findElement(By.cssSelector("[class='Payment-Button CC']"));
-        dAct.moveToElement(payment).click().build().perform();
-
-        WebElement email= driver.findElement(By.cssSelector("[placeholder='Email']"));
-        Assert.assertTrue("Place holder doesn't exist!",email.isDisplayed());
-
-        WebElement confirmEmail=driver.findElement(By.cssSelector("[placeholder='Confirm Email']"));
-        Assert.assertTrue("Confirm place holder doesn't exist!",confirmEmail.isDisplayed());
-
-        WebElement nameOnCard=driver.findElement(By.xpath("//*[@autocomplete='name']"));
-        Assert.assertTrue("Name on card doesn't exist!",nameOnCard.isDisplayed());
-
-        WebElement cardNumber=driver.findElement(By.xpath("//input[@placeholder='Kart numarası']"));
-        Assert.assertTrue("Card number doesn't exist!",cardNumber.isDisplayed());
+        elements.eBookAdd.click();
+        driver.switchTo().frame(elements.frame1);
+        Assert.assertTrue("Product couldn't find!", Tools.ListContainsString(elements.cartItems, "Demo eBook"));
+        elements.debitCard.click();
+        Assert.assertTrue("Place holder doesn't exist!", elements.email.isDisplayed());
+        Assert.assertTrue("Confirm place holder doesn't exist!", elements.emailConfirm.isDisplayed());
+        Assert.assertTrue("Name on card doesn't exist!", elements.name.isDisplayed());
+        driver.switchTo().frame(elements.frame2);
+        Assert.assertTrue("Card number doesn't exist!", elements.cardNumber.isDisplayed());
+        Assert.assertNotNull("Date doesn't exist!", elements.expirationDate);
+        Assert.assertNotNull("CVC is doesn't exist!", elements.cvc);
+        driver.switchTo().parentFrame();
+        dAct.moveToElement(elements.payButton).click().build().perform();
+        Assert.assertTrue("Not found!", elements.message.getText().contains("Invalid Email"));
+        Assert.assertTrue("Billing name not found!", elements.message.getText().contains("Invalid Billing Name"));
 
         WaitAndClose();
     }
