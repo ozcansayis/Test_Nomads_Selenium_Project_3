@@ -29,7 +29,7 @@ public class TC_308 extends BaseDriver {
 
         //reaching the play button utilizing shift function of robot class and entering it.
         for (int i = 0; i < 15; i++) {
-            Tools.WaitDouble(1);
+            Tools.Wait(1);
             robocop.keyPress(KeyEvent.VK_TAB);
             robocop.keyRelease(KeyEvent.VK_TAB);
         }
