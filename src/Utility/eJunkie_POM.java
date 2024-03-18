@@ -58,5 +58,13 @@ public class eJunkie_POM {
 
     @FindBy (css = "input[placeholder='CVC']")
     public WebElement cvc;
+    @FindBy(xpath = "//p[@class='Billing-Phone Inline']/input")
+    public WebElement phoneNo;
+    @FindBy(xpath = "//p[@class='Billing-Company']/input")
+    public  WebElement company;
+    @FindBy(xpath ="//p[@class='BuyerNotes']/textarea" )
+    public WebElement note;
+    @FindBy(xpath = "//span[text()=' your order is confirmed. Thank you!']")
+    public WebElement message2;
 
 }
