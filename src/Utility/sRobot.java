@@ -31,15 +31,7 @@ public class sRobot {
 
     }
 
-    public static void clickBlank(String click, int x, int y) {
-        if (click.equalsIgnoreCase("click")) {
-            robot.mouseMove(x, y);
-            robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
-            robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-        } else if (click.equalsIgnoreCase("dontClick")) {
-            robot.mouseMove(x, y);
-        }
-    }
+
 
     private static void tabPresser(int time) {
 
@@ -49,7 +41,15 @@ public class sRobot {
             robot.keyRelease(KeyEvent.VK_TAB);
         }
     }
-
+    public static void clickBlank(String click, int x, int y) {
+        if (click.equalsIgnoreCase("click")) {
+            robot.mouseMove(x, y);
+            robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+            robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+        } else if (click.equalsIgnoreCase("dontClick")) {
+            robot.mouseMove(x, y);
+        }
+    }
     private static void tabPresserReverse(int time) {
 
         for (int i = 0; i < time; i++) {
