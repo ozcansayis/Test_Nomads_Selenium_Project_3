@@ -59,4 +59,11 @@ public class eJunkie_POM {
     @FindBy (css = "input[placeholder='CVC']")
     public WebElement cvc;
 
+    @FindBy(linkText ="E-commerce by E-junkie" )
+    public WebElement eCommerce;
+
+    @FindBy(xpath = "//*[@href='/']")
+    public WebElement eJunkieLogo;
+
+
 }
