@@ -108,4 +108,10 @@ public class eJunkie_POM {
   
     @FindBy(css="div[class='modal youtube-modal is-active'] iframe")
     public WebElement frame;
+    
+      @FindBy(linkText ="E-commerce by E-junkie" )
+    public WebElement eCommerce;
+
+    @FindBy(xpath = "//*[@href='/']")
+    public WebElement eJunkieLogo;
 }
