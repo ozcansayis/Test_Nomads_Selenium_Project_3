@@ -11,7 +11,6 @@ public class eJunkie_POM {
         PageFactory.initElements(BaseDriver.driver, this);
     }
 
-    // https://shopdemo.e-junkie.com/
     @FindBy(xpath = "(//button[@class='view_product'])[2]")
     public WebElement eBookAdd;
 
@@ -72,7 +71,6 @@ public class eJunkie_POM {
     @FindBy(xpath = "//span[contains(text(), 'your order is confirmed. Thank you!')]")
     public WebElement message2;
 
-    // https://www.e-junkie.com/wiki/demo/paypal
     @FindBy(xpath = "//*[text()='Add to Cart']")
     public WebElement addToCart;
 
