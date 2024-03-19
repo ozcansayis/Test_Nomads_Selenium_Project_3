@@ -2,18 +2,14 @@ import Utility.BaseDriver;
 import Utility.eJunkie_POM;
 import org.junit.Assert;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.http.Message;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class TC_306 extends BaseDriver {
     @Test
     public void TC_306() {
-
         driver.get("https://shopdemo.e-junkie.com/");
-
         Utility.eJunkie_POM elements = new eJunkie_POM();
+
         elements.ContactUs.click();
         elements.namee.sendKeys("Test Nomads");
         elements.emaill.sendKeys("testnomads01@gmail.com");
@@ -26,8 +22,6 @@ public class TC_306 extends BaseDriver {
         Assert.assertEquals(alertMessage, "Recaptcha didn't match");
         driver.switchTo().alert().accept();
 
-
         WaitAndClose();
-
     }
 }
