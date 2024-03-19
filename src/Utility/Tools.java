@@ -25,4 +25,12 @@ public class Tools {
         }
         return condition;
     }
+
+    public static void WaitNano(long sec) {
+        try {
+            Thread.sleep(sec * 100);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
