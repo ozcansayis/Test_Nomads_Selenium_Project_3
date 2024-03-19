@@ -1,4 +1,5 @@
 import Utility.BaseDriver;
+import Utility.eJunkie_POM;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -9,25 +10,24 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class TC_306 extends BaseDriver {
     @Test
     public void TC_306() {
+
         driver.get("https://shopdemo.e-junkie.com/");
 
-        driver.findElement(By.linkText("Contact Us")).click();
-
-        driver.findElement(By.xpath("//*[@name='sender_name']")).sendKeys("Test Nomads");
-        driver.findElement(By.cssSelector("[name='sender_email']")).sendKeys("testnomads01@gmail.com");
-        driver.findElement(By.id("sender_subject")).sendKeys("Test Subject");
-        driver.findElement(By.id("sender_message")).sendKeys("Test Message Area");
-        driver.findElement(By.id("send_message_button")).click();
+        Utility.eJunkie_POM elements = new eJunkie_POM();
+        elements.ContactUs.click();
+        elements.namee.sendKeys("Test Nomads");
+        elements.emaill.sendKeys("testnomads01@gmail.com");
+        elements.sender.sendKeys("test subjest");
+        elements.messagee.sendKeys("Test Message Area");
+        elements.butonn.submit();
 
         wait.until(ExpectedConditions.alertIsPresent());
-
         String alertMessage = driver.switchTo().alert().getText();
-
-        Assert.assertEquals(alertMessage,"Recaptcha didn't match");
-
+        Assert.assertEquals(alertMessage, "Recaptcha didn't match");
         driver.switchTo().alert().accept();
 
 
         WaitAndClose();
+
     }
 }

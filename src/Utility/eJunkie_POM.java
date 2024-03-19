@@ -112,4 +112,33 @@ public class eJunkie_POM {
 
     @FindBy(xpath = "//*[@href='/']")
     public WebElement eJunkieLogo;
+
+    @FindBy(linkText = "Contact Us")
+    public WebElement ContactUs;
+
+    @FindBy(xpath = "//*[@name='sender_name']")
+    public WebElement namee;
+
+    @FindBy(css= "[name='sender_email']")
+    public WebElement emaill;
+
+    @FindBy(id= "sender_subject")
+    public WebElement sender;
+
+    @FindBy(id= "sender_message")
+    public WebElement messagee;
+
+    @FindBy(id= "send_message_button")
+    public WebElement butonn;
+
+
+
+
+
+
+
+
+
+
+
 }
