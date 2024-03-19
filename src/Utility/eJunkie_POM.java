@@ -96,4 +96,16 @@ public class eJunkie_POM {
 
     @FindBy(linkText = "Download")
     public WebElement download;
+    
+    @FindBy(css = "div[class='wrapper']")
+    public List<WebElement>ad;
+
+    @FindBy(css = "div[class='ytp-time-display notranslate'] span span:nth-child(1)")
+    public WebElement timeDisp;
+  
+    @FindBy(css = "[onclick='toggleYoutubeModal(true)']")
+    public WebElement seeHowItWorks;
+  
+    @FindBy(css="div[class='modal youtube-modal is-active'] iframe")
+    public WebElement frame;
 }
