@@ -11,6 +11,7 @@ public class eJunkie_POM {
         PageFactory.initElements(BaseDriver.driver, this);
     }
 
+    // https://shopdemo.e-junkie.com/
     @FindBy(xpath = "(//button[@class='view_product'])[2]")
     public WebElement eBookAdd;
 
@@ -35,7 +36,7 @@ public class eJunkie_POM {
     @FindBy(xpath = "//iframe[contains(@name,'__privateStripeFrame')]")
     public WebElement frame2;
 
-    @FindBy(xpath = "//*[@name='cardnumber']")
+    @FindBy(xpath = "//*[@autocomplete='cc-number']")
     public WebElement cardNumber;
 
     @FindBy(css = "[class='Pay-Button']")
@@ -53,22 +54,58 @@ public class eJunkie_POM {
     @FindBy(xpath = "//button[text()='Apply']")
     public WebElement apply;
 
-    @FindBy(xpath = "//input[@placeholder='AA / YY']")
+    @FindBy(xpath = "//input[@autocomplete='cc-exp']")
     public WebElement expirationDate;
 
-    @FindBy (css = "input[placeholder='CVC']")
+    @FindBy (css = "input[autocomplete='cc-csc']")
     public WebElement cvc;
 
+    @FindBy(xpath = "//p[@class='Billing-Phone Inline']/input")
+    public WebElement phoneNo;
+
+    @FindBy(xpath = "//p[@class='Billing-Company']/input")
+    public  WebElement company;
+
+    @FindBy(xpath ="//p[@class='BuyerNotes']/textarea" )
+    public WebElement note;
+
+    @FindBy(xpath = "//span[contains(text(), 'your order is confirmed. Thank you!')]")
+    public WebElement message2;
+
+    // https://www.e-junkie.com/wiki/demo/paypal
+    @FindBy(xpath = "//*[text()='Add to Cart']")
+    public WebElement addToCart;
+
+    @FindBy(css = "[data-option='CC']")
+    public WebElement addToCart2;
+
+    @FindBy(css = "[autocomplete='address-1']")
+    public WebElement address;
+
+    @FindBy(css = "[placeholder='City']")
+    public WebElement city;
+
+    @FindBy(css = "[autocomplete='country']")
+    public WebElement country;
+
+    @FindBy(xpath = "//div[@class='Billing-Form Form']/p[11]/input")
+    public WebElement zipCode;
+
+    @FindBy(xpath = "//button[@type='button']")
+    public WebElement payButton2;
+
+    @FindBy(linkText = "Download")
+    public WebElement download;
+    
     @FindBy(css = "div[class='wrapper']")
     public List<WebElement>ad;
 
     @FindBy(css = "div[class='ytp-time-display notranslate'] span span:nth-child(1)")
     public WebElement timeDisp;
+  
     @FindBy(css = "[onclick='toggleYoutubeModal(true)']")
     public WebElement seeHowItWorks;
+  
     @FindBy(css="div[class='modal youtube-modal is-active'] iframe")
     public WebElement frame;
-
-
-
 }
