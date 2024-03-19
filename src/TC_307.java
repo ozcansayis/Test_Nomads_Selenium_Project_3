@@ -1,16 +1,12 @@
-import Utility.BaseDriver;
-import Utility.eJunkie_POM;
-import org.junit.Assert;
-import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import Utility.*;
+import org.junit.*;
 
 public class TC_307 extends BaseDriver {
     @Test
     public void TC_307() {
         driver.get("https://shopdemo.e-junkie.com/");
-
         Utility.eJunkie_POM elements = new eJunkie_POM();
+
         dAct.moveToElement(elements.eCommerce).click().build().perform();
         dAct.moveToElement(elements.eJunkieLogo).click().build().perform();
         String newUrl=driver.getCurrentUrl();
