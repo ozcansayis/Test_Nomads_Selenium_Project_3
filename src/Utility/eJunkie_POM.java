@@ -59,4 +59,15 @@ public class eJunkie_POM {
     @FindBy (css = "input[placeholder='CVC']")
     public WebElement cvc;
 
+    @FindBy(css = "div[class='wrapper']")
+    public List<WebElement>ad;
+
+    @FindBy(css = "[onclick='toggleYoutubeModal(true)']")
+    public WebElement seeHowItWorks;
+    @FindBy(css="div[class='modal youtube-modal is-active'] iframe")
+    public WebElement frame;
+    @FindBy(css = "div[class='ytp-time-display notranslate'] span span:nth-child(1)")
+    public WebElement timeDisp;
+
+
 }
