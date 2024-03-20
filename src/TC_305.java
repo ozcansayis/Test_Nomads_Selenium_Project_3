@@ -25,16 +25,9 @@ public class TC_305 extends BaseDriver {
         element.cvc.sendKeys("000");
         driver.switchTo().parentFrame();
         element.payButton.click();
-        Assert.assertTrue("Incorrect message!", element.message2.getText().contains("your order is confirmed. Thank you!"));
-        Assert.assertTrue("Incorret total", element.total.getText().contains("0.50"));
+        Assert.assertTrue("Confirmation message could not be displayed!", element.message2.getText().contains("your order is confirmed. Thank you!"));
+        Assert.assertTrue("Total amount is not same as the price of the e-book!", element.total.getText().contains("0.50"));
         dAct.click(element.download2).perform();
-
-
-
-
-
-
-
 
         WaitAndClose();
     }

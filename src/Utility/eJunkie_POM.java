@@ -56,16 +56,16 @@ public class eJunkie_POM {
     @FindBy(xpath = "//input[@autocomplete='cc-exp']")
     public WebElement expirationDate;
 
-    @FindBy (css = "input[autocomplete='cc-csc']")
+    @FindBy(css = "input[autocomplete='cc-csc']")
     public WebElement cvc;
 
     @FindBy(xpath = "//p[@class='Billing-Phone Inline']/input")
     public WebElement phoneNo;
 
     @FindBy(xpath = "//p[@class='Billing-Company']/input")
-    public  WebElement company;
+    public WebElement company;
 
-    @FindBy(xpath ="//p[@class='BuyerNotes']/textarea" )
+    @FindBy(xpath = "//p[@class='BuyerNotes']/textarea")
     public WebElement note;
 
     @FindBy(xpath = "//span[contains(text(), 'your order is confirmed. Thank you!')]")
@@ -94,20 +94,20 @@ public class eJunkie_POM {
 
     @FindBy(linkText = "Download")
     public WebElement download;
-    
+
     @FindBy(css = "div[class='wrapper']")
-    public List<WebElement>ad;
+    public List<WebElement> ad;
 
     @FindBy(css = "div[class='ytp-time-display notranslate'] span span:nth-child(1)")
     public WebElement timeDisp;
-  
+
     @FindBy(css = "[onclick='toggleYoutubeModal(true)']")
     public WebElement seeHowItWorks;
-  
-    @FindBy(css="div[class='modal youtube-modal is-active'] iframe")
+
+    @FindBy(css = "div[class='modal youtube-modal is-active'] iframe")
     public WebElement frame;
-    
-      @FindBy(linkText ="E-commerce by E-junkie" )
+
+    @FindBy(linkText = "E-commerce by E-junkie")
     public WebElement eCommerce;
 
     @FindBy(xpath = "//*[@href='/']")
@@ -119,30 +119,21 @@ public class eJunkie_POM {
     @FindBy(xpath = "//*[@name='sender_name']")
     public WebElement namee;
 
-    @FindBy(css= "[name='sender_email']")
+    @FindBy(css = "[name='sender_email']")
     public WebElement emaill;
 
-    @FindBy(id= "sender_subject")
+    @FindBy(id = "sender_subject")
     public WebElement sender;
 
-    @FindBy(id= "sender_message")
+    @FindBy(id = "sender_message")
     public WebElement messagee;
 
-    @FindBy(id= "send_message_button")
+    @FindBy(id = "send_message_button")
     public WebElement butonn;
 
-    @FindBy(css= "[class='col-md-6 col-sm-6 col-xs-6 text-right']>span")
+    @FindBy(css = "[class='col-md-6 col-sm-6 col-xs-6 text-right']>span")
     public WebElement total;
 
-    @FindBy (xpath = "//span[text()='Download']")
+    @FindBy(xpath = "//span[text()='Download']")
     public WebElement download2;
-
-
-
-
-
-
-
-
-
 }

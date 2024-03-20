@@ -10,7 +10,7 @@ public class TC_307 extends BaseDriver {
         dAct.moveToElement(elements.eCommerce).click().build().perform();
         dAct.moveToElement(elements.eJunkieLogo).click().build().perform();
         String newUrl=driver.getCurrentUrl();
-        Assert.assertTrue("Hata mesajı alındı",newUrl.contains("https://www.e-junkie.com/"));
+        Assert.assertTrue("Wrong URL!",newUrl.contains("https://www.e-junkie.com/"));
 
         WaitAndClose();
     }

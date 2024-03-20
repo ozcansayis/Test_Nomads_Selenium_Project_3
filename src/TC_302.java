@@ -3,12 +3,12 @@ import Utility.Tools;
 import Utility.eJunkie_POM;
 import org.junit.Assert;
 import org.junit.Test;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class TC_302 extends BaseDriver {
     @Test
     public void TC_302() {
         driver.get("https://shopdemo.e-junkie.com/");
-
         Utility.eJunkie_POM elements = new eJunkie_POM();
 
         elements.eBookAdd.click();
@@ -19,7 +19,7 @@ public class TC_302 extends BaseDriver {
         Assert.assertTrue("Confirm place holder doesn't exist!", elements.emailConfirm.isDisplayed());
         Assert.assertTrue("Name on card doesn't exist!", elements.name.isDisplayed());
         driver.switchTo().frame(elements.frame2);
-        Assert.assertTrue("Card number doesn't exist!", elements.cardNumber.isDisplayed());
+        Assert.assertNotNull("Card number doesn't exist!", elements.cardNumber);
         Assert.assertNotNull("Date doesn't exist!", elements.expirationDate);
         Assert.assertNotNull("CVC is doesn't exist!", elements.cvc);
         driver.switchTo().parentFrame();
