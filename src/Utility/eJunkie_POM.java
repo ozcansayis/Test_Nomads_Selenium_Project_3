@@ -131,7 +131,11 @@ public class eJunkie_POM {
     @FindBy(id= "send_message_button")
     public WebElement butonn;
 
+    @FindBy(css= "[class='col-md-6 col-sm-6 col-xs-6 text-right']>span")
+    public WebElement total;
 
+    @FindBy (xpath = "//span[text()='Download']")
+    public WebElement download2;
 
 
 
