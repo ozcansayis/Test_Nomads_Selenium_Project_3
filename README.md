@@ -32,7 +32,7 @@
 ## Team Members
 
 - [Ayşe İhtiyar](https://github.com/ayseihtiyar)
-- [Fatoş Ergündüz](https://github.com/teknostudy)
+- [Fatoş Ergündüz](https://github.com/fatosergunduz)
 - [Abdulkabir Türkoğlu](https://github.com/AbdulkabirTurkoglu)
 - [Hakan Yeğin](https://github.com/hakanyegin)
 - [Samed Yekenkurul](https://github.com/samfrmda01)
