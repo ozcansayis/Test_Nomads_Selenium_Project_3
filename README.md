@@ -1,7 +1,6 @@
 # E-Junkie Environment Test
 
 ## User Stories
-
 ### US_301: Adding E-Book to a Basket
 - **Contributor:** Ayşe İhtiyar
 
